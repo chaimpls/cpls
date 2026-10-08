@@ -1,17 +1,22 @@
-html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CP Legal Solutions | Toronto Family, Estate & Corporate Lawyer</title>
+    <!-- Loads crisp, professional legal and business icons automatically -->
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         :root {
             --primary: #0f2c59;
             --secondary: #d4af37;
+            --secondary-hover: #bda032;
             --text-dark: #222222;
             --text-light: #555555;
             --bg-light: #f8f9fa;
+        }
+        * {
+            box-sizing: border-box;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -20,234 +25,313 @@ html
             margin: 0;
             padding: 0;
             background-color: #ffffff;
+            scroll-behavior: smooth;
         }
-        header {
+        /* Sticky Top Navigation Menu */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             background-color: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-            border-bottom: 5px solid var(--secondary);
+            border-bottom: 3px solid var(--secondary);
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.8rem;
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
             letter-spacing: 1px;
         }
-        header p {
-            margin: 15px auto 0 auto;
-            font-size: 1.2rem;
-            max-width: 800px;
-            color: #e0e0e0;
-            line-height: 1.5;
+        .logo span {
+            color: var(--secondary);
         }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        .nav-links {
+            display: flex;
+            gap: 20px;
         }
-        .intro-box {
-            text-align: center;
-            font-size: 1.25rem;
-            color: var(--primary);
+        .nav-links a {
+            color: #eaeaea;
+            text-decoration: none;
             font-weight: 500;
-            margin-bottom: 50px;
-            line-height: 1.8;
-            border-left: 4px solid var(--secondary);
-            border-right: 4px solid var(--secondary);
-            padding: 0 20px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
         }
-        h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            border-bottom: 2px solid #eaeaea;
-            padding-bottom: 10px;
-            margin-top: 40px;
+        .nav-links a:hover {
+            color: var(--secondary);
         }
-        .service-block {
+        /* Professional Law Firm Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, #091c3a 0%, #153b75 100%);
+            color: white;
+            padding: 160px 20px 100px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary);
+        }
+        .hero-content {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0 0 20px 0;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
             margin-bottom: 35px;
+            font-weight: 300;
+            line-height: 1.6;
         }
-        .service-block h3 {
+        /* Page Layout Constraints */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 60px 20px;
+        }
+        section {
+            padding: 40px 0;
+        }
+        .section-title {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+            margin: 15px auto 0 auto;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            font-size: 1.1rem;
+        }
+        /* Highlighted Firm Mission Block */
+        .intro-quote {
+            background-color: var(--bg-light);
+            border-left: 5px solid var(--secondary);
+            padding: 30px;
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-style: italic;
+            text-align: center;
+            margin: 20px 0 40px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            line-height: 1.6;
+        }
+        /* Practice Area Blocks */
+        .detailed-services {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+        .service-row {
+            background: white;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .service-row:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+        }
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        .service-header i {
+            color: var(--secondary);
+            font-size: 1.6rem;
+        }
+        .service-header h3 {
             color: var(--primary);
             font-size: 1.4rem;
-            margin-bottom: 8px;
-        }
-        .service-block p {
-            color: var(--text-light);
             margin: 0;
         }
+        .service-row p {
+            color: var(--text-light);
+            margin: 0 0 15px 0;
+            font-size: 1.05rem;
+        }
+        .service-subtext {
+            font-size: 0.95rem;
+            background-color: var(--bg-light);
+            padding: 15px;
+            border-left: 3px solid var(--primary);
+            color: #444;
+            margin-top: 15px;
+            border-radius: 0 4px 4px 0;
+            line-height: 1.6;
+        }
+        /* Fields of Expertise Grid Layout */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
             margin-top: 20px;
         }
         .card {
             background-color: var(--bg-light);
-            padding: 25px;
+            padding: 30px;
             border-radius: 8px;
             border-top: 4px solid var(--primary);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.01);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+        }
+        .card-icon {
+            background-color: var(--primary);
+            color: var(--secondary);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
         }
         .card h3 {
-            margin-top: 0;
+            margin: 0 0 12px 0;
             color: var(--primary);
+            font-size: 1.25rem;
         }
         .card p {
             color: var(--text-light);
             font-size: 0.95rem;
-            margin-bottom: 0;
+            margin: 0;
         }
-        .cta-section {
+        /* Profile Split Section */
+        .about-wrapper {
+            display: flex;
+            gap: 40px;
+            align-items: stretch;
+            margin-top: 30px;
+        }
+        .about-graphic {
+            flex: 1;
             background-color: var(--primary);
             color: white;
-            padding: 50px 20px;
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            border-bottom: 4px solid var(--secondary);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .about-graphic i {
+            font-size: 4rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        .about-graphic h4 {
+            font-size: 1.5rem;
+            margin: 0 0 5px 0;
+        }
+        .about-graphic p {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            margin: 0;
+        }
+        .about-text {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .about-text h3 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .about-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0 0;
+        }
+        .about-bullets li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+        .about-bullets li i {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--secondary);
+        }
+        /* Call To Action Contact Callouts */
+        .cta-section {
+            background: linear-gradient(135deg, #0f2c59 0%, #071731 100%);
+            color: white;
+            padding: 60px 40px;
             text-align: center;
             border-radius: 12px;
-            margin: 50px 0;
+            margin: 60px 0 20px 0;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
         .cta-section h2 {
             color: white;
-            border: none;
+            font-size: 2rem;
             margin-top: 0;
+            margin-bottom: 15px;
+            border: none;
         }
         .cta-section p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 25px auto;
+            font-size: 1.15rem;
+            max-width: 750px;
+            margin: 0 auto 35px auto;
+            color: #d1d5db;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             background-color: var(--secondary);
             color: var(--primary);
-            padding: 15px 30px;
+            padding: 15px 32px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 6px;
             font-size: 1.1rem;
             transition: background-color 0.2s, transform 0.2s;
-        }
-        .btn:hover {
-            background-color: #e5c158;
-            transform: translateY(-2px);
-        }
-        .contact-info {
-            margin-top: 25px;
-            font-size: 1.2rem;
-        }
-        .contact-info a {
-            color: white;
-            text-decoration: underline;
-            font-weight: bold;
-        }
-        footer {
-            background-color: #111111;
-            color: #888888;
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 0.9rem;
-            border-top: 1px solid #222222;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>CP Legal Solutions</h1>
-        <p>Family Law &bull; Wills &bull; Probate Applications &bull; Estate Planning &bull; Corporations &bull; Trusts &bull; Partnerships &bull; Estate Freeze &bull; Guardianship Applications &bull; Estate Litigation &bull; Real Estate Purchase and Sale</p>
-    </header>
-
-    <div class="container">
-        
-        <div class="intro-box">
-            "We patiently deal with every detail of our clients’ case and take a personal interest in their every concern. Going the extra mile for our clients is our standard practice."
-        </div>
-
-        <section>
-            <h2>Our Practice Areas</h2>
-            
-            <div class="service-block">
-                <h3>Domestic Contracts And Separation Agreements</h3>
-                <p>Separation and divorce can have catastrophic consequences on everything you have worked for your entire life. Our Toronto lawyer can help you plan ahead and protect your future with a professionally prepared custom marriage contract, cohabitation agreement, or separation agreement.</p>
-            </div>
-
-            <div class="service-block">
-                <h3>Real Estate Purchase And Sale</h3>
-                <p>From mortgage approval and home inspections to title registration, exchange of funds, and keys, our Real Estate Lawyer assists with every step to protect your investment.</p>
-            </div>
-
-            <div class="service-block">
-                <h3>Decision Making Responsibilities And Parenting Time</h3>
-                <p>Our GTA family law lawyer will passionately fight for your rights and guide you while you handle matters concerning your children.</p>
-            </div>
-
-            <div class="service-block">
-                <h3>Estate Litigation</h3>
-                <p>Our client-driven Estates Lawyer works to develop execution plans sensitive to family dynamics, limiting time and costs in high-conflict or complex estate disputes.</p>
-            </div>
-
-            <div class="service-block">
-                <h3>Corporate Law</h3>
-                <p>Assistance with incorporation, professional corporations, establishing trusts and partnerships, restructuring, and corporate governance.</p>
-            </div>
-
-            <div class="service-block">
-                <h3>Divorce Applications & Support</h3>
-                <p>Handling contested, uncontested simple, and joint divorce applications, alongside thorough representation for child and spousal support matters.</p>
-            </div>
-
-            <div class="service-block">
-                <h3>Probate Applications & Estate Planning</h3>
-                <p>Comprehensive assistance with Certificates of Appointment of Estate Trustee, will updating, codicils, and customized strategies to maximize asset transfer and minimize taxes.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Fields of Expertise</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Separation & Divorce</h3>
-                    <p>Assistance with every aspect of your case, from drafting agreements to filing for divorce.</p>
-                </div>
-                <div class="card">
-                    <h3>Real Estate Law</h3>
-                    <p>Purchase and sale, title registrations/transfers, mortgage renewals, and title insurance.</p>
-                </div>
-                <div class="card">
-                    <h3>Corporate Law</h3>
-                    <p>Establishing entities, amending by-laws, maintaining minute books, and resolving disputes.</p>
-                </div>
-                <div class="card">
-                    <h3>Coaching & Mediation Support</h3>
-                    <p>On-demand family law coaching service and guidance for self-represented individuals.</p>
-                </div>
-                <div class="card">
-                    <h3>Guardianship & Powers of Attorney</h3>
-                    <p>Summary disposition, contested applications, and properly drafted medical/financial powers of attorney.</p>
-                </div>
-                <div class="card">
-                    <h3>Notary Public</h3>
-                    <p>Affordable notarizing and commissioning of documents available by appointment.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <h2>Why Use Chaim Piotrkovski?</h2>
-            <p><strong>Meet Chaim Piotrkovski, the hands-on sole practitioner.</strong></p>
-            <p>Chaim personally handles every aspect of his clients’ files to ensure efficient, timely, and satisfactory outcomes, focusing on a high level of customer service and unbundled legal services.</p>
-            
-            <div class="contact-info">
-                <p>Call today &mdash; your first 30-minute consultation is free.</p>
-                <a href="tel:4163029661" class="btn">Call 416-302-9661</a>
-                <p style="margin-top: 15px;">Or email: <a href="mailto:chaim@cplegalsolutions.com">chaim@cplegalsolutions.com</a></p>
-            </div>
-        </section>
-
-    </div>
-
-    <footer>
-        &copy; 2026 CP Legal Solutions. All Rights Reserved. Providing Unbundled Legal Services in Toronto and the GTA.
-    </footer>
-
-</body>
-</html>
