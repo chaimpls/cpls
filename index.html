@@ -1,100 +1,253 @@
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Billboard</title>
+    <title>CP Legal Solutions | Toronto Family, Estate & Corporate Lawyer</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background-color: #f4f7f6; color: #333; }
-        .billboard { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 450px; width: 90%; text-align: center; }
-        h1 { margin-bottom: 10px; font-size: 2rem; color: #111; }
-        p { font-size: 1.1rem; line-height: 1.6; color: #666; margin-bottom: 25px; }
-        .contact-btn { display: inline-block; background: #0070f3; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.2s; }
-        .contact-btn:hover { background: #0051cb; }
+        :root {
+            --primary: #0f2c59;
+            --secondary: #d4af37;
+            --text-dark: #222222;
+            --text-light: #555555;
+            --bg-light: #f8f9fa;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 5px solid var(--secondary);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+        }
+        header p {
+            margin: 15px auto 0 auto;
+            font-size: 1.2rem;
+            max-width: 800px;
+            color: #e0e0e0;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .intro-box {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 50px;
+            line-height: 1.8;
+            border-left: 4px solid var(--secondary);
+            border-right: 4px solid var(--secondary);
+            padding: 0 20px;
+        }
+        h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        .service-block {
+            margin-bottom: 35px;
+        }
+        .service-block h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+        .service-block p {
+            color: var(--text-light);
+            margin: 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: var(--bg-light);
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        .cta-section {
+            background-color: var(--primary);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 50px 0;
+        }
+        .cta-section h2 {
+            color: white;
+            border: none;
+            margin-top: 0;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 25px auto;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        .btn:hover {
+            background-color: #e5c158;
+            transform: translateY(-2px);
+        }
+        .contact-info {
+            margin-top: 25px;
+            font-size: 1.2rem;
+        }
+        .contact-info a {
+            color: white;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #111111;
+            color: #888888;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            border-top: 1px solid #222222;
+        }
     </style>
 </head>
 <body>
-    <div class="billboard">
-        <h1>cplegalsolutions</h1>
-        <p>CP Legal Solutions
-Family Law - Wills - Probate Applications - Estate Planning - Corporations - Trusts - Partnerships
-Estate Freeze - Guardianship Applications - Estate Litigation - Real Estate Purchase and Sale
-We patiently deal with every detail of our clients’ case and take a personal interest in their every concern. Going the extra mile for our clients is our standard practice.
-Domestic Contracts And Separation Agreements
-Separation and divorce can have catastrophic consequences on everything you have worked for your entire life. Often, a properly prepared and negotiated separation agreement can prevent an extended, hostile and expensive court proceeding. Our Toronto lawyer can help you plan ahead and protect your future with a professionally prepared custom marriage contract or cohabitation agreement that can automatically become a separation agreement should the need arise. Our experienced and sensitive Family Lawyer will listen to your needs and concerns, consider your options and assist you by crafting an agreement customized to your individual needs.
-Real Estate Purchase And Sale
-Purchasing a home should be a joyous milestone, but requires careful and timely planning to ensure your biggest investment is properly protected. The process of purchasing or selling a home usually includes mortgage approval, tax considerations, home inspection, agreement of purchase and sale, final inspection and finally title registration and exchange of funds and keys. Our Real Estate Lawyer can assist you with all the steps of your purchase or sale of real estate, providing you with peace of mind at an affordable price.
-Decision Making Responsibilities And Parenting Time
-The importance of this area of family law cannot be overstated. Our GTA family law lawyer will passionately fight for your rights, save you money and guide you while you deal with your most important asset, your children.
-Estate Litigation
-Estate litigation, including high conflict and complex estate litigation, is often the result of poor planning, a poorly drafted will, miscommunication or the avoidance of discussing what is often considered a taboo subject. The unfortunate consequences are often family conflict and years of stressful and expensive litigation. Our client driven Estates Lawyer will work together with you to develop and execute a litigation plan that is sensitive to family dynamics and limits litigation time and cost.
-Corporate Law
-Corporations and trusts are tools used in tax and estate planning. Corporations often require customized articles, by-laws and share structure. Our Corporate Lawyer can assist you with Corporate Law, including incorporation, establishing professional corporations, trusts and partnerships, restructuring corporations and assistance with corporate governance. He will patiently answer your questions and be available to answer your calls and provide guidance. 
-Divorce Applications
-Contested Applications, Uncontested Simple Applications and Joint Applications 
-Support
-Child support and spousal support can have a significant effect on your quality of life for years to come. Our Ontario family and divorce lawyer will leave no stone unturned in his fight to protect your rights.
-Probate Applications
-Application for the Certificate of Appointment of Estate Trustee, formally known as Probate Applications. This certificate provides the estate trustee the authority to manage or distribute estate assets. Any deficiencies in the will need to be addressed prior to submitting this application or the court will not issue the certificate. The documents required for this application include the application form, the original will, a certified death certificate, a draft certificate, probate tax payment, affidavit of service, affidavit of execution and often additional affidavits, consents and a draft order. The documents need to be properly completed or they will be rejected by the court. From simple wills to incomplete or deficient wills and complex probate filings, our Estates Lawyer can assist you with this entire process, including properly completing and submitting the application and obtaining the court issued certificate. 
 
+    <header>
+        <h1>CP Legal Solutions</h1>
+        <p>Family Law &bull; Wills &bull; Probate Applications &bull; Estate Planning &bull; Corporations &bull; Trusts &bull; Partnerships &bull; Estate Freeze &bull; Guardianship Applications &bull; Estate Litigation &bull; Real Estate Purchase and Sale</p>
+    </header>
 
+    <div class="container">
+        
+        <div class="intro-box">
+            "We patiently deal with every detail of our clients’ case and take a personal interest in their every concern. Going the extra mile for our clients is our standard practice."
+        </div>
 
-Updating Wills And Adding A Codicil To Your Will.
-Marriage, separation and divorce all call for an updated will. Our Estates Lawyer will guide you to make the right decisions when going through these life changing events.
-Wills And Estate Planning, Including Will Drafting, Business Succession Planning, Powers Of Attorney And Guardianship Applications
-Our Estates Lawyer can help you create a customized strategy to suit your financial and personal priorities. By creating a proper will, we can also help your loved ones avoid costly and acrimonious litigation. Begin by creating an estate plan that includes customized solutions to create a financial safety net for your old age, ensures maximum net transfer to your beneficiaries, ensures you retain decision making over your assets and allows your business enterprises to continue unhindered after your passing. We can help your beneficiaries save on the capital gains tax payable on your passing by implementing an estate freeze and save on probate tax by creating double wills and using an Inter Vivos Trust.
+        <section>
+            <h2>Our Practice Areas</h2>
+            
+            <div class="service-block">
+                <h3>Domestic Contracts And Separation Agreements</h3>
+                <p>Separation and divorce can have catastrophic consequences on everything you have worked for your entire life. Our Toronto lawyer can help you plan ahead and protect your future with a professionally prepared custom marriage contract, cohabitation agreement, or separation agreement.</p>
+            </div>
 
-FIELDS OF EXPERTISE
-Separation & Divorce
-Our Toronto family law lawyer can assist you with every aspect of your case, from drafting your separation agreement to filing for divorce and everything in between.
-Real Estate Law
-Our Real Estate Lawyer can assist you with your purchase and sale or real estate, title registrations and transfers, mortgage renewals and title insurance.
-Corporate Law
-Corporate Law, including establishing corporations, professional corporations and partnerships, amending articles and by-laws, updating and maintaining minute books, assisting with director and shareholder meetings and resolving shareholder disputes.
-Coaching, Advice And Family Law Mediation Support
-Are you representing yourself but occasionally need some assistance? Are you just starting the process and need guidance from a Family Lawyer? Were you served with papers and are not sure how to proceed. Call today to schedule a consultation or sign up for our On-Demand Family Law Coaching Service.
-Spousal Support
-Unlike child support, spousal support is affected by many factors detailed in the Spousal Support Advisory Guidelines.Our GTA divorce lawyer will analyze all factors and properly apply them, to ensure a satisfactory and lasting settlement.
-Guardianship Application
-Guardianship Applications, including summary disposition applications and contested applications. Our Toronto Lawyer can help you complete and submit the required forms and represent you at any guardianship related court hearing. 
-Power Of Attorney
-Often overlooked, a properly drafted Power Of Attorney can ensure you receive proper medical treatment when you need it most. It is also crucial in ensuring a medical disability does not have a devastating effect on your children and assets
-Notary Public And Commissioning Documents
-Our office is open to the public for affordable notarizing and commissioning of documents by appointment
-Wills And Estate Planning
-Wills and estate planning, including double wills, trusts, will trusts, updating wills and codicils.
+            <div class="service-block">
+                <h3>Real Estate Purchase And Sale</h3>
+                <p>From mortgage approval and home inspections to title registration, exchange of funds, and keys, our Real Estate Lawyer assists with every step to protect your investment.</p>
+            </div>
 
+            <div class="service-block">
+                <h3>Decision Making Responsibilities And Parenting Time</h3>
+                <p>Our GTA family law lawyer will passionately fight for your rights and guide you while you handle matters concerning your children.</p>
+            </div>
 
-WHY USE CHAIM PIOTRKOVSKI?
-Meet Chaim Piotrkovski, the hands-on-sole practitioner.
-Chaim personally handles every aspect of his clients’ files ensuring an efficient, timely, and satisfactory conclusion.
-Chaim focuses his time and energy on a small number of cases in order to ensure excellent customer service and optimum results.
-Chaim takes a personal interest in his clients’ success and works tirelessly to help his clients when they need it most.
-Chaim understands that every client’s needs are different; he therefore works with his clients and consults with them often in order to ensure an outcome that is satisfactory to them.
-Chaim is easy to reach by phone at 416 302 9661, or via email at chaim@cplegalsolutions.com.
-Call today, the first 30-minute consultation is free.
+            <div class="service-block">
+                <h3>Estate Litigation</h3>
+                <p>Our client-driven Estates Lawyer works to develop execution plans sensitive to family dynamics, limiting time and costs in high-conflict or complex estate disputes.</p>
+            </div>
 
-UNBUNDLED LEGAL SERVICES
-Unbundled Legal Services, also known as Limited Scope Retainers are used by many self represented family law litigants to fill the gaps of the process they are unable to complete on their own.
-Lets face it, going through a divorce can be expensive. Many people therefore choose to go it alone in order to avoid paying the legal fees. However, even those that do it alone may occasionally need the service of a lawyer.
-CP Legal Solutions can assist you with the following unbundled legal services:
-Commission an affidavit,
-Provide a professional opinion,
-Conduct legal research,
-Review a document,
-Draft a document,
-Coach you in preparation for examinations
-A consultation
-Represent you at a court hearing, a mediation or arbitration.
-38
-Percent Of Marriages In Canada End In Divorce
-2660000
-Divorced People Living In Canada (2017)
-16
-Percent Of Divorces Were For Marriages That Lasted 25+ Years
-982220
-Separated People In Canada</p>
-        <a href="mailto:info@cplegalsolutions.com" class="contact-btn">Get in Touch</a>
+            <div class="service-block">
+                <h3>Corporate Law</h3>
+                <p>Assistance with incorporation, professional corporations, establishing trusts and partnerships, restructuring, and corporate governance.</p>
+            </div>
+
+            <div class="service-block">
+                <h3>Divorce Applications & Support</h3>
+                <p>Handling contested, uncontested simple, and joint divorce applications, alongside thorough representation for child and spousal support matters.</p>
+            </div>
+
+            <div class="service-block">
+                <h3>Probate Applications & Estate Planning</h3>
+                <p>Comprehensive assistance with Certificates of Appointment of Estate Trustee, will updating, codicils, and customized strategies to maximize asset transfer and minimize taxes.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Fields of Expertise</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Separation & Divorce</h3>
+                    <p>Assistance with every aspect of your case, from drafting agreements to filing for divorce.</p>
+                </div>
+                <div class="card">
+                    <h3>Real Estate Law</h3>
+                    <p>Purchase and sale, title registrations/transfers, mortgage renewals, and title insurance.</p>
+                </div>
+                <div class="card">
+                    <h3>Corporate Law</h3>
+                    <p>Establishing entities, amending by-laws, maintaining minute books, and resolving disputes.</p>
+                </div>
+                <div class="card">
+                    <h3>Coaching & Mediation Support</h3>
+                    <p>On-demand family law coaching service and guidance for self-represented individuals.</p>
+                </div>
+                <div class="card">
+                    <h3>Guardianship & Powers of Attorney</h3>
+                    <p>Summary disposition, contested applications, and properly drafted medical/financial powers of attorney.</p>
+                </div>
+                <div class="card">
+                    <h3>Notary Public</h3>
+                    <p>Affordable notarizing and commissioning of documents available by appointment.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Why Use Chaim Piotrkovski?</h2>
+            <p><strong>Meet Chaim Piotrkovski, the hands-on sole practitioner.</strong></p>
+            <p>Chaim personally handles every aspect of his clients’ files to ensure efficient, timely, and satisfactory outcomes, focusing on a high level of customer service and unbundled legal services.</p>
+            
+            <div class="contact-info">
+                <p>Call today &mdash; your first 30-minute consultation is free.</p>
+                <a href="tel:4163029661" class="btn">Call 416-302-9661</a>
+                <p style="margin-top: 15px;">Or email: <a href="mailto:chaim@cplegalsolutions.com">chaim@cplegalsolutions.com</a></p>
+            </div>
+        </section>
+
     </div>
+
+    <footer>
+        &copy; 2026 CP Legal Solutions. All Rights Reserved. Providing Unbundled Legal Services in Toronto and the GTA.
+    </footer>
+
 </body>
 </html>
