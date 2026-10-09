@@ -4,57 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domestic Contracts & Separation Agreements | CP Legal Solutions</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+    <!-- Font Awesome Icon Library Connection -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #0f2c59;
+            --secondary: #d4af37;
+            --secondary-hover: #bda032;
+            --text-dark: #222222;
+            --text-light: #444444;
+            --bg-glass: rgba(255, 255, 255, 0.94);
+        }
+        * { 
+            box-sizing: border-box; 
+        }
+        
         body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
             margin: 0;
             padding: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: linear-gradient(rgba(240, 244, 248, 0.75), rgba(240, 244, 248, 0.85)), 
                         url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
             background-size: cover;
-            color: #1e293b;
             min-height: 100vh;
         }
 
+        /* --- Navigation Bar (Matches Main Page Exactly) --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(15, 44, 89, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 3px solid var(--secondary);
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        .logo {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .logo span { 
+            color: var(--secondary); 
+        }
+        .nav-links { 
+            display: flex; 
+            gap: 15px; 
+        }
+        .nav-links a {
+            color: #eaeaea;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { 
+            color: var(--secondary); 
+        }
+
+        /* --- Subpage Layout Containers --- */
         .page-container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 120px auto 60px auto;
             padding: 0 20px;
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.92);
+            background: var(--bg-glass);
             backdrop-filter: blur(10px);
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             margin-bottom: 40px;
         }
 
-        .consultation-section {
-            background: rgba(15, 23, 42, 0.92);
+        .back-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: var(--secondary-hover);
+        }
+
+        .glass-panel {
+            background: rgba(15, 44, 89, 0.92);
             backdrop-filter: blur(8px);
-            color: #ffffff;
-            border-radius: 12px;
+            color: white;
             padding: 40px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-        }
-
-        .consultation-section h2 {
-            color: #ffffff;
-            margin-top: 0;
-            font-size: 1.8rem;
-        }
-
-        .consultation-section p {
-            color: #cbd5e1;
-            font-size: 1.1rem;
-            margin-bottom: 25px;
         }
 
         .btn-group {
@@ -62,89 +122,76 @@
             gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 25px;
         }
-
-        .btn-call {
-            background: #d4af37;
-            color: #0f172a;
-            padding: 12px 24px;
-            border-radius: 6px;
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 14px 28px;
+            border-radius: 4px;
             text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform 0.2s, background-color 0.2s;
+            font-weight: bold;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-
-        .btn-call:hover {
-            background: #c5a028;
+        .btn:hover {
+            background-color: var(--secondary-hover);
             transform: translateY(-2px);
         }
-
-        .btn-email {
-            background: transparent;
-            color: #ffffff;
-            border: 2px solid #ffffff;
-            padding: 10px 22px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform 0.2s, background-color 0.2s;
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid var(--secondary);
+            backdrop-filter: blur(4px);
         }
-
-        .btn-email:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
+        .btn-secondary:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
         }
 
         footer {
+            background-color: rgba(10, 10, 10, 0.9);
+            color: #aaa;
             text-align: center;
-            padding: 25px 20px;
-            background: #0f172a;
-            color: #94a3b8;
-            font-size: 0.95rem;
+            padding: 25px;
+            font-size: 0.85rem;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Header -->
+    <!-- Fixed Navigation Bar -->
     <nav>
-    <div class="nav-container">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-            <img src="logo.png" alt="CP Legal Solutions Logo" style="height: 38px; width: auto; mix-blend-mode: multiply;">
-            <span>CP <span>Legal Solutions</span></span>
-        </a>
-        <div class="nav-links">
-            <a href="index.html#services">Practice Areas</a>
-            <a href="index.html#expertise">Expertise</a>
-            <a href="index.html#about">Why Chaim</a>
-            <a href="index.html#contact">Contact</a>
+        <div class="nav-container">
+            <a href="index.html" class="logo">CP <span>Legal Solutions</span></a>
+            <div class="nav-links">
+                <a href="index.html#services">Practice Areas</a>
+                <a href="index.html#expertise">Expertise</a>
+                <a href="index.html#about">Why Chaim</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+
     <!-- Main Content Container -->
     <div class="page-container">
         
         <!-- Practice Area Detail Card -->
         <div class="glass-card">
-            <a href="index.html#services" style="color: #1e293b; text-decoration: none; font-weight: 600; display: inline-block; margin-bottom: 15px;">
-                &larr; Back to Practice Areas
-            </a>
+            <a href="index.html#services" class="back-link">&larr; Back to Practice Areas</a>
             
-            <h1 style="margin-top: 10px; font-size: 2.2rem; color: #0f172a;">Domestic Contracts & Separation Agreements</h1>
-            <hr style="border: 0; border-top: 2px solid #d4af37; margin: 20px 0;">
+            <h1 style="margin-top: 10px; font-size: 2.2rem; color: var(--primary);">Domestic Contracts & Separation Agreements</h1>
+            <hr style="border: 0; border-top: 3px solid var(--secondary); margin: 20px 0;">
 
-            <p style="font-size: 1.15rem; line-height: 1.7; color: #334155;">
+            <p style="font-size: 1.15rem; line-height: 1.7; color: var(--text-light);">
                 Navigating family transitions requires clear legal strategy and meticulous attention to detail. At CP Legal Solutions, we draft and negotiate customized domestic contracts designed to protect your assets, establish legal clarity, and prevent prolonged court proceedings.
             </p>
 
-            <h3 style="margin-top: 30px; color: #0f172a; font-size: 1.3rem;">Key Areas of Practice:</h3>
-            <ul style="line-height: 1.8; font-size: 1.05rem; color: #334155; padding-left: 20px;">
+            <h3 style="margin-top: 30px; color: var(--primary); font-size: 1.3rem;">Key Areas of Practice:</h3>
+            <ul style="line-height: 1.8; font-size: 1.05rem; color: var(--text-light); padding-left: 20px;">
                 <li><strong>Separation Agreements:</strong> Comprehensive agreements addressing property division, spousal support, and family obligations.</li>
                 <li><strong>Marriage Contracts (Prenuptial Agreements):</strong> Tailored prenuptial agreements protecting personal and business assets prior to marriage.</li>
                 <li><strong>Cohabitation Agreements:</strong> Legal protection for unmarried couples establishing legal expectations and financial rights.</li>
@@ -153,25 +200,21 @@
         </div>
 
         <!-- Schedule Consultation Section -->
-        <div class="consultation-section">
-            <h2>Schedule Your Free Consultation</h2>
-            <p>The first 30-minute consultation is free. Reach out directly by phone or email to discuss your case with Chaim Piotrkovski.</p>
+        <section id="contact" class="glass-panel" style="border-top: 4px solid var(--secondary);">
+            <h2 style="color: white; margin-top: 0; font-size: 2.2rem;">Schedule Your Free Consultation</h2>
+            <p style="color: #cbd5e1; font-size: 1.15rem; max-width: 700px; margin: 0 auto;">The first 30-minute consultation is free. Reach out directly by phone or email to discuss your case with Chaim Piotrkovski.</p>
             
             <div class="btn-group">
-                <a href="tel:4163029661" class="btn-call">
-                    <i class="fa-solid fa-phone"></i> Call 416-302-9661
-                </a>
-                <a href="mailto:chaim@cplegalsolutions.com" class="btn-email">
-                    <i class="fa-solid fa-envelope"></i> Email Chaim
-                </a>
+                <a href="tel:4163029661" class="btn"><i class="fa-solid fa-phone"></i> Call 416-302-9661</a>
+                <a href="mailto:chaim@cplegalsolutions.com" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Email Chaim</a>
             </div>
-        </div>
+        </section>
 
     </div>
 
     <!-- Footer -->
     <footer>
-        &copy; 2026 CP Legal Solutions. All Rights Reserved. Providing Unbundled Legal Services across Toronto and the GTA.
+        &copy; 2026 CP Legal Solutions. All Rights Reserved.
     </footer>
 
 </body>
