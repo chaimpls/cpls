@@ -327,24 +327,47 @@ html
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section id="testimonials">
-            <h2 class="section-title">Client Testimonials</h2>
-            <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 20px;">
-                <div class="card" style="border-left: 5px solid var(--primary); font-style: italic;">
-                    <p style="margin-top:0; color: var(--text-dark);">"I am grateful for all the legal advice Mr Chaim Piotrkovski provided during a difficult time. His attention to detail was top notch."</p>
-                    <strong style="color: var(--primary); font-style: normal;">- M. L.</strong>
-                </div>
-                <div class="card" style="border-left: 5px solid var(--primary); font-style: italic;">
-                    <p style="margin-top:0; color: var(--text-dark);">"Chaim did an excellent job. He showed me that he really cared about getting the best outcome for my family."</p>
-                    <strong style="color: var(--primary); font-style: normal;">- Mike F.</strong>
-                </div>
-                <div class="card" style="border-left: 5px solid var(--primary); font-style: italic;">
-                    <p style="margin-top:0; color: var(--text-dark);">"Chaim was very professional and offered great advice on our corporate restructuring."</p>
-                    <strong style="color: var(--primary); font-style: normal;">- Annie Wu</strong>
-                </div>
+        <!-- Testimonials Section with Rotating Slider -->
+<section id="testimonials">
+    <h2 class="section-title">Client Testimonials</h2>
+    
+    <div class="testimonial-slider">
+        <div class="testimonial-track">
+            
+            <!-- Testimonial 1 -->
+            <div class="testimonial-slide active">
+                <p>"I am grateful for all the legal advice Mr Chaim Piotrkovski provided during a difficult time. His attention to detail was top notch."</p>
+                <strong class="author">- M. L.</strong>
             </div>
-        </section>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-slide">
+                <p>"Chaim did an excellent job. He showed me that he really cared about getting the best outcome for my family."</p>
+                <strong class="author">- Mike F.</strong>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-slide">
+                <p>"Chaim was very professional and offered great advice on our corporate restructuring."</p>
+                <strong class="author">- Annie Wu</strong>
+            </div>
+
+            <!-- Testimonial 4 (Add as many as you like!) -->
+            <div class="testimonial-slide">
+                <p>"Fast, effective, and responsive. Navigated our probate application smoothly without any unnecessary delay."</p>
+                <strong class="author">- David K.</strong>
+            </div>
+
+        </div>
+
+        <!-- Slider Controls -->
+        <button class="slider-btn prev-btn" onclick="prevTestimonial()"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="slider-btn next-btn" onclick="nextTestimonial()"><i class="fa-solid fa-chevron-right"></i></button>
+
+        <!-- Slide Indicators -->
+        <div class="slider-dots"></div>
+    </div>
+</section>
 
         <!-- About Section -->
         <section id="about" class="card" style="margin: 30px 0;">
