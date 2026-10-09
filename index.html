@@ -1,3 +1,12 @@
+I apologize for that experience—that specific URL was likely redirected on Unsplash to a different image.
+
+To ensure **no unexpected or inappropriate images EVER show up on your website**, I have completely removed all third-party Unsplash image URLs from your CSS.
+
+Instead, the header background is now styled with a **rich, high-end navy-and-gold geometric CSS mesh gradient**. This is 100% pure code—it loads instantly, looks clean and professional, and guarantees no unexpected images will ever load on your site.
+
+Here is your updated, complete `index.html` code:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,14 +79,18 @@
             color: var(--secondary); 
         }
         
-        /* Top Hero Section - Classic Courthouse Columns */
+        /* Top Hero Section - Pure Executive CSS Gradient Pattern (100% Code, Zero External Images) */
         .hero {
-            background: linear-gradient(135deg, rgba(9, 28, 58, 0.90) 0%, rgba(21, 59, 117, 0.85) 100%), 
-                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            background-color: #071731;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(15, 44, 89, 0.9) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(212, 175, 55, 0.2) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(21, 59, 117, 0.8) 0px, transparent 100%);
             color: white;
             padding: 160px 20px 90px 20px;
             text-align: center;
             border-bottom: 5px solid var(--secondary);
+            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.2);
         }
         .hero h1 { 
             font-size: 2.8rem; 
@@ -288,8 +301,8 @@
             <p style="font-size:1.1rem; color:var(--text-dark); font-weight:500;">Unbundled Legal Services, also known as Limited Scope Retainers, assist self-represented litigants by providing targeted legal help for specific tasks without full-case representation.</p>
         </section>
 
-        <!-- Statistics Section with Law Library Background -->
-        <section id="stats" style="background: linear-gradient(135deg, rgba(15, 44, 89, 0.92) 0%, rgba(7, 23, 49, 0.92) 100%), url('https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat; color: white; padding: 50px 40px; border-radius: 8px; text-align: center; margin: 30px 0; border-bottom: 4px solid var(--secondary);">
+        <!-- Statistics Section - Pure Deep Navy/Gold Gradient Style -->
+        <section id="stats" style="background: linear-gradient(135deg, #0f2c59 0%, #071731 100%); color: white; padding: 50px 40px; border-radius: 8px; text-align: center; margin: 30px 0; border-bottom: 4px solid var(--secondary); border-top: 1px solid rgba(212, 175, 55, 0.3);">
             <h2 style="color: var(--secondary); margin-top:0; font-size: 2rem;">Canadian Family Law Context</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px;">
                 <div><h3 style="font-size: 2.5rem; color: var(--secondary); margin:0;">38%</h3><p style="font-size:0.95rem; color: #cbd5e1;">Of marriages in Canada end in divorce</p></div>
@@ -338,3 +351,5 @@
     </footer>
 </body>
 </html>
+
+```
